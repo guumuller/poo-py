@@ -1,79 +1,72 @@
-import random as rm
+import random
+
 
 class AnimalEstimacao:
     def __init__(self, nome, especie, idade, tutor):
-        self.nome = nome
-        self.especie = especie
-        self.idade = idade
-        self.estado = None
-        self.tutor = tutor
-
-    def comer(self):
-        comendo = ["Comendo ração", "Comendo o resto do almoço", "Bebendo água"]
-        self.estado = rm.choice(comendo)
-            
+        self.nome=nome
+        self.especie=especie
+        self.idade=idade
+        self.estado=None
+        self.tutor=tutor
     def dormir(self):
-        dormindo = ["Dormindo na caminha", "Dormindo no sofá", "Dormindo no pátio"]
-        self.estado = rm.choice(dormindo)
-
+        self.estado="dormindo"
+    def comer(self):
+        self.estado="Comendo"
     def brincar(self):
-        brincando = ["Brincando com a bolinha", "Brincando com o amiguinho", "Brincando com uma sacola"]
-        self.estado = rm.choice(brincando)
-
-    def pular(self):
-        self.estado = "Pulando"
-    
-    def passear(self):
-        passeando = ["Passeando no parque", "Passeando na praia", "Passeando no condomínio"]
-        self.estado = rm.choice(passeando)
-
+        self.estado="Brincando"
     def listar(self):
-        print(f"Nome: {self.nome}, Espécie: {self.especie}, Idade: {self.idade} anos,  Estado: {self.estado}")
+        print("******************************")
+        print(f'Nome: {self.nome}')
+        print(f'Espécie: {self.especie}')
+        print(f'Idade: {self.idade}')
+        print(f'Estado: {self.estado}')
+        print(f'Tutor nome:{self.tutor.nome}')
+        print(f'Celular Tutor:{self.tutor.celular}')
+        print("******************************\n\n\n")
 
-    def randomizar_estado(self):
-        acoes = [self.comer, self.dormir, self.brincar, self.pular, self.passear]
-        acao_escolhida = rm.choice(acoes)
-        acao_escolhida()
-
+    def som(self):
+        numero_aleatorio = random.random()
+        sons=int(numero_aleatorio*10)
+        print(f"{self.nome}")
+        for i in range(sons):
+            if self.especie == "Canino":
+                print("Au ",end='')
+            elif self.especie == 'Felino':
+                print("Miau")
 class Tutor:
-    def __init__(self, nome, cpf, celular):
+    def __init__(self,nome,cpf,celular):
         self.nome = nome
         self.cpf = cpf
         self.celular = celular
-    
     def listar(self):
         print('\n')
-        print("*"*20, ' Lista Tutor ', )
-        print(f'''
-              Nome: {self.nome}
-              CPF: {self.cpf}
-              Celular: {self.celular}
-              ''')
+        print("*"*20, ' Lista Tutor ', '*'*20)
+        print(f''' 
+        Nome {self.nome}
+        CPF {self.cpf}
+        Celular{self.celular}
+        ''')
 
-tutor1 = Tutor('Pedro', '123.456.789-00', '(51)989039582')
+tutor1 = Tutor('Pedro','123.456.789-00','(51)9987788')
+
+print("Cria Objeto 20")
+pet1=AnimalEstimacao('Maia','Felino',4, tutor1)
+pet1.listar()
 
 
-nome = input("Digite o nome do animal: ")
-
-especie = input(f"Digite a especie do {nome}: ")
-
-idade = input(f"Digite a idade do {nome}: ")
-
-animal = AnimalEstimacao(nome, especie, idade)
-
-menu = """
-    ============================================
-    Menu:
-    0 para Sair
-    1 para saber o que seu animal está fazendo
-    ============================================"""
-while True:
-    print(menu)
-    escolha = input("")
-    if escolha == "0":
-        break
-    elif escolha == "1":
-        animal.randomizar_estado()
-        animal.listar()
-    else:
-        print("Escolha inválida")
+print("muda estado 23 ")
+pet1.dormir()
+pet1.listar()
+print("muda estado 26")
+pet1.comer()
+pet1.listar()
+print("muda estado 29")
+pet1.brincar()
+pet1.listar()
+pet1.som()
+'''
+guria=AnimalEstimacao("Guria","Canino",6)
+guria.brincar()
+guria.listar()
+guria.som()
+'''
