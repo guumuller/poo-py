@@ -34,7 +34,6 @@ class Motorista:
         self.motorista = dataValidade
         
         
-
 capacidade_carga = int(input("Digite a capacidade de carga do caminhão: "))
 peso = int(input("Digite o peso da carga: "))
 modelo = input("Digite o modelo do caminhão: ")
@@ -44,7 +43,6 @@ caminhao = Caminhao(modelo, placa, capacidade_carga)
 caminhao.carregar(peso)
 # caminhao.descarregar(peso)
 print(caminhao.peso)
-
 
 
 nome = input("Digite o nome do motorista: ")
