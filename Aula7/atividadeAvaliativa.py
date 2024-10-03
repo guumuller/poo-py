@@ -1,3 +1,4 @@
+#Gustavo Müller Leonini Machado
 class Produto:
     def __init__(self, codigo, nome, categoria, preco, quantidadeEstoque):
         self.codigo = codigo
@@ -5,6 +6,7 @@ class Produto:
         self.categoria = categoria
         self.preco = preco
         self.quantidadeEstoque = quantidadeEstoque
+        
 
     def get_codigo(self):
         return self.codigo
@@ -33,6 +35,18 @@ class Produto:
         print(f"Venda realizada: {self.nome}, Categoria: {self.categoria}, "
               f"Quantidade Vendida: {quantidade_vendida}, Preço: {self.preco:.2f}, "
               f"Total da Venda: {total_venda:.2f}")
+    
+    def comprar(self, quantidadeComprada):
+        self.quantidadeEstoque += quantidadeComprada
 
 produto = Produto(1, "CAMISA", "Vestuário", 79.90, 75)
 produto.vender(10)
+produto.get_codigo()
+produto.get_nome()
+produto.get_categoria()
+produto.get_preco()
+produto.get_quantidade_estoque()
+produto.set_preco(50.00)
+produto.vender(10)
+produto.comprar(3)
+print(f"Estoque: {produto.quantidadeEstoque}")
